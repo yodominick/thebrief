@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #f9f9f7;
+  color: #111;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topic-btn {
+  background: none;
+  border: 1px solid transparent;
+  padding: 5px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: #999;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+}
+.topic-btn:hover { color: #111; border-color: #ccc; }
+.topic-btn.active { color: #f9f9f7; border-color: #111; background: #111; }
+
+.article-row {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #e5e5e1;
+  animation: fadeIn 0.35s ease forwards;
+  opacity: 0;
+}
+.article-row:first-child { border-top: 1px solid #e5e5e1; }
+
+.article-link {
+  display: block;
+  flex: 1;
+  padding: 16px 0;
+  text-decoration: none;
+  color: inherit;
+}
+.article-link:hover .headline-text {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-color: #bbb;
+}
+
+.no-link { flex: 1; padding: 16px 0; }
+
+.headline-text {
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: color 0.15s;
+}
+
+.meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+}
+
+.row-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #ccc;
+  width: 32px;
+  flex-shrink: 0;
+  padding-top: 18px;
+  align-self: flex-start;
+}
+
+.arrow {
+  font-size: 11px;
+  color: #ccc;
+  padding-top: 18px;
+  padding-left: 8px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  transition: color 0.15s, transform 0.15s;
+}
+.article-row:hover .arrow { color: #888; transform: translateX(2px); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #eee 25%, #f5f5f3 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 2px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
